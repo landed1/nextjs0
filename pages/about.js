@@ -6,7 +6,7 @@ export default function About() {
       <Head>
         <title>About Calvin Crane</title>
       </Head>
-      <div className='div'>About me.</div>
+      <div className='font-sans'>About me.</div>
     </>
   );
 }
