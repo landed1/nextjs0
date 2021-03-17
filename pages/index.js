@@ -1,11 +1,15 @@
 import Head from "next/head";
 import Image from "next/image";
+import xc from "../public/data/pageContent.json";
 
 export default function Home() {
+  const { id, pTitle } = xc[0];
+
+  //console.log(id, pTitle);
   return (
     <>
       <Head>
-        <title>Home Page</title>
+        <title>{pTitle}</title>
         <meta charset='UTF-8' />
         <meta name='description' content='Free Web tutorials' />
         <meta name='keywords' content='HTML, CSS, JavaScript' />
@@ -24,7 +28,7 @@ export default function Home() {
             alt='spotted-drum-antigua'
             width='302'
             height='302'
-            class='rounded shadow-xl'
+            className='rounded'
           />
         </div>
 
