@@ -5,36 +5,38 @@ export default function About({ art }) {
 
   const { id, slug, title } = art.data.post;
 
-  console.log(id, slug, title);
+  //console.log("AS", id);
 
   return (
     <>
       <Head>
         <title>About Calvin Crane</title>
       </Head>
-      <div className='font-sans'>title</div>
+      <div className='font-sans'>{id}</div>
+      <div className='font-sans'>{slug}</div>
+      <div className='font-sans'>{title}</div>
     </>
   );
 }
 
 export const getServerSideProps = async () => {
+  const _REQ = `
+  {
+    post(id: "cG9zdDoxMDQ=") {
+      id
+      slug
+      title
+    }
+  }
+`;
+
   const res = await fetch(process.env.WORDPRESS_API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      query: `
-    {
-      post(id: "cG9zdDoxMDQ=") {
-        id
-        slug
-        title
-      }
-    }
-  `,
+      query: _REQ,
     }),
   });
-
-  //const log = await res;
 
   const art = await res.json();
 
@@ -44,6 +46,3 @@ export const getServerSideProps = async () => {
     },
   };
 };
-
-/*
- */

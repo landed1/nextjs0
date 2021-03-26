@@ -2,10 +2,9 @@ import Head from "next/head";
 import Image from "next/image";
 import xc from "../public/data/pageContent.json";
 
-export default function Home() {
+export default function Home({ pageProps }) {
   const { id, pTitle } = xc[0];
 
-  //console.log(id, pTitle);
   return (
     <>
       <Head>

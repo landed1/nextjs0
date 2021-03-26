@@ -1,7 +1,13 @@
+import { useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { ColorContext } from "../components/AppContext";
 
 const Navbar = () => {
+  const [data] = useContext(ColorContext);
+
+  console.log(data);
+
   return (
     <div className='flex justify-between items-center mx-auto px-20 py-4 bg-yellow-600 text-white'>
       <div>
@@ -19,6 +25,9 @@ const Navbar = () => {
           <Link className='text-blue-800' href='/contact'>
             Contact
           </Link>
+        </div>
+        <div className='inline bg-red-300 hover:bg-red-200 px-4 py-2 mr-2 rounded shadow-lg'>
+          <span>Total: {data.blue}</span>
         </div>
       </div>
       <div>
