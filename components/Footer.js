@@ -3,11 +3,17 @@ import { ColorContext } from "../components/AppContext";
 import React, { createContext, useContext } from "react";
 
 const Footer = () => {
-  const [value, whatIs] = useContext(ColorContext);
-  console.log(value);
+  const [value, setTotal] = useContext(ColorContext);
+
+  const handleClick = (e) => {
+    console.log("handle");
+
+    setTotal({ total: value.total + 1 });
+  };
+
   return (
     <div>
-      <h1>Colo :{value.blue}</h1>
+      <button onClick={handleClick}>Increment Total</button>
       <div className='flex justify-between p-6 bg-red-900 text-red-200'>
         <div className='w-6/12'>
           <h3 className='text-size-3'>Subscribe to my news</h3>

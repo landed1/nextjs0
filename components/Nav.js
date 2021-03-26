@@ -4,9 +4,12 @@ import Image from "next/image";
 import { ColorContext } from "../components/AppContext";
 
 const Navbar = () => {
-  const [data] = useContext(ColorContext);
+  const da = useContext(ColorContext);
 
-  console.log(data);
+  let [payload] = da;
+  let { colors, resorts, total } = payload;
+  //console.log(colors.blue);
+  //console.log(total);
 
   return (
     <div className='flex justify-between items-center mx-auto px-20 py-4 bg-yellow-600 text-white'>
@@ -27,7 +30,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className='inline bg-red-300 hover:bg-red-200 px-4 py-2 mr-2 rounded shadow-lg'>
-          <span>Total: {data.blue}</span>
+          <span>Total: {total}</span>
         </div>
       </div>
       <div>

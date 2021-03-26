@@ -10,7 +10,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <AppProvider>
       <div>
-        <h1>Hello</h1>
         <Layout {...pageProps}>
           <Component {...pageProps} />
         </Layout>
